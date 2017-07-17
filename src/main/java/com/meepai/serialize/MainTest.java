@@ -37,7 +37,7 @@ public class MainTest {
         System.out.println();
         System.out.println("****************** test xml serialize/unserialize ****************");
         JibxDemo.main(args);
-//        XStreamDemo.main(args);
+//        XStreamDemo.main(aa rgs);
 //        BeansDemo.main(args);
         JaxbDemo.main(args);
 
