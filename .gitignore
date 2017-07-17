@@ -1,4 +1,6 @@
-## ginore these files ##
+## ginore these files
 
 /target/
 .idea/
+
+*.iml
