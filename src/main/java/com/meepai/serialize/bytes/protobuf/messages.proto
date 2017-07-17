@@ -1,0 +1,24 @@
+package serial;
+option java_package = "com.meepai.serialize.bytes.protobuf";
+option java_outer_classname = "MessagesProto";
+
+message Message {
+
+    optional int32 id = 1;
+
+    optional string subject = 2;
+
+    optional string label = 3;
+
+    optional string from = 4;
+
+    optional string to = 5;
+
+    optional int64 sendTime = 6;
+
+}
+
+message Messages {
+
+    repeated Message message = 1;
+}
