@@ -1,11 +1,10 @@
 package com.meepai.serialize.json.jsonlib;
 
 import com.meepai.serialize.BaseSerialize;
-import com.meepai.serialize.Message;
 import com.meepai.serialize.MessageCreator;
+import com.meepai.serialize.Messages;
 import net.sf.json.JSONArray;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,7 +18,7 @@ public class JsonLibDemo extends BaseSerialize<String> {
      * @param messages
      * @return
      */
-    public String serialize(List<Message> messages){
+    public String serialize(Messages messages){
         long start = System.nanoTime();
         JSONArray array = JSONArray.fromObject(messages);
         String json = array.toString();

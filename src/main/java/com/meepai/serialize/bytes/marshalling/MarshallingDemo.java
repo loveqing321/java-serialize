@@ -1,14 +1,13 @@
 package com.meepai.serialize.bytes.marshalling;
 
 import com.meepai.serialize.BaseSerialize;
-import com.meepai.serialize.Message;
 import com.meepai.serialize.MessageCreator;
+import com.meepai.serialize.Messages;
 import org.jboss.marshalling.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -33,7 +32,7 @@ public class MarshallingDemo extends BaseSerialize<byte[]> {
         }
     }
 
-    public byte[] serialize(List<Message> messages){
+    public byte[] serialize(Messages messages){
         long start = System.nanoTime();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {

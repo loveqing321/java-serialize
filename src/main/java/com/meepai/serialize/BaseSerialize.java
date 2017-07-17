@@ -1,7 +1,5 @@
 package com.meepai.serialize;
 
-import java.util.List;
-
 /**
  * Created by meepai on 2017/7/17.
  */
@@ -13,7 +11,7 @@ public abstract class BaseSerialize<T> {
      * @param messages
      * @return
      */
-    public abstract T serialize(List<Message> messages);
+    public abstract T serialize(Messages messages);
 
     /**
      * 反序列化

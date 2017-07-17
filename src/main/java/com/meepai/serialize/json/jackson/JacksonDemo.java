@@ -3,11 +3,10 @@ package com.meepai.serialize.json.jackson;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meepai.serialize.BaseSerialize;
-import com.meepai.serialize.Message;
 import com.meepai.serialize.MessageCreator;
+import com.meepai.serialize.Messages;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -23,7 +22,7 @@ public class JacksonDemo extends BaseSerialize<String> {
      * @param messages
      * @return
      */
-    public String serialize(List<Message> messages){
+    public String serialize(Messages messages){
         String str = null;
         try {
             long start = System.nanoTime();
@@ -43,10 +42,10 @@ public class JacksonDemo extends BaseSerialize<String> {
      * @return
      */
     public Object unserialize(String str){
-        List ret = null;
+        Messages ret = null;
         try {
             long start = System.nanoTime();
-            ret = mapper.readValue(str, List.class);
+            ret = mapper.readValue(str, Messages.class);
             long duration = System.nanoTime() - start;
             System.out.print("unserialize: " + duration + "(" + TimeUnit.NANOSECONDS.toMillis(duration) + "ms)");
         } catch (IOException e) {

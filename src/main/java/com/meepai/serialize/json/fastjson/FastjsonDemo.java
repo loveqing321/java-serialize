@@ -2,10 +2,9 @@ package com.meepai.serialize.json.fastjson;
 
 import com.alibaba.fastjson.JSONObject;
 import com.meepai.serialize.BaseSerialize;
-import com.meepai.serialize.Message;
 import com.meepai.serialize.MessageCreator;
+import com.meepai.serialize.Messages;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,7 +18,7 @@ public class FastjsonDemo extends BaseSerialize<String> {
      * @param messages
      * @return
      */
-    public String serialize(List<Message> messages){
+    public String serialize(Messages messages){
         long start = System.nanoTime();
         String json = JSONObject.toJSONString(messages);
         long duration = System.nanoTime() - start;
@@ -35,7 +34,7 @@ public class FastjsonDemo extends BaseSerialize<String> {
      */
     public Object unserialize(String str){
         long start = System.nanoTime();
-        List obj = JSONObject.parseArray(str);
+        Object obj = JSONObject.parse(str);
         long duration = System.nanoTime() - start;
         System.out.print("unserialize: " + duration + "(" + TimeUnit.NANOSECONDS.toMillis(duration) + "ms)");
         return obj;

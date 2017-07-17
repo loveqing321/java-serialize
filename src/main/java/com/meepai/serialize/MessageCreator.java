@@ -30,8 +30,9 @@ public abstract class MessageCreator {
      *
      * @return
      */
-    public static List<Message> createMessages(){
-        List<Message> messages = new ArrayList<Message>();
+    public static Messages createMessages(){
+        Messages messages = new Messages();
+        List<Message> msgs = new ArrayList<Message>();
         Message message;
         for(int i=0; i<COUNT; i++){
             message = new Message();
@@ -41,8 +42,9 @@ public abstract class MessageCreator {
             message.setFrom("test@163.com");
             message.setTo("test2@163.com");
             message.setSendTime(new Date().getTime());
-            messages.add(message);
+            msgs.add(message);
         }
+        messages.setMessages(msgs);
         return messages;
     }
 }

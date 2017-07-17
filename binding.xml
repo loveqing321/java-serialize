@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<binding value-style="attribute">
+  <mapping class="com.meepai.serialize.Message" name="message">
+    <value name="id" field="id"/>
+    <value style="element" name="subject" field="subject" usage="optional"/>
+    <value style="element" name="label" field="label" usage="optional"/>
+    <value style="element" name="from" field="from" usage="optional"/>
+    <value style="element" name="to" field="to" usage="optional"/>
+    <value name="send-time" field="sendTime"/>
+  </mapping>
+  <mapping class="com.meepai.serialize.Messages" name="messages">
+    <collection field="messages" usage="optional" factory="org.jibx.runtime.Utility.arrayListFactory"/>
+  </mapping>
+</binding>

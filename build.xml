@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="jibx-serial" basedir="." default="bind">
+
+    <target name="bindgen">
+        <echo message="Running BindGen tool"/>
+        <java fork="true" failonerror="true" classname="org.jibx.binding.BindingGenerator">
+            <classpath path="${compile_classpath}"/>
+            <arg value="-f"/>
+            <arg value="binding.xml"/>
+            <arg value="com.meepai.serialize.Message"/>
+            <arg value="com.meepai.serialize.Messages"/>
+        </java>
+    </target>
+
+    <target name="bind" depends="bindgen">
+        <echo message="Running Binding compiler"/>
+        <taskdef name="bind" classname="org.jibx.binding.ant.CompileTask">
+            <classpath>
+                <pathelement path="${compile_classpath}"/>
+            </classpath>
+        </taskdef>
+        <bind binding="${basedir}/binding.xml">
+            <classpath>
+                <pathelement path="${compile_classpath}"/>
+            </classpath>
+        </bind>
+    </target>
+
+</project>

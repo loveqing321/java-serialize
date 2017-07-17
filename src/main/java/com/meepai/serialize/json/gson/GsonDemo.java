@@ -3,10 +3,9 @@ package com.meepai.serialize.json.gson;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.meepai.serialize.BaseSerialize;
-import com.meepai.serialize.Message;
 import com.meepai.serialize.MessageCreator;
+import com.meepai.serialize.Messages;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,7 +19,7 @@ public class GsonDemo extends BaseSerialize<String> {
      * @param messages
      * @return
      */
-    public String serialize(List<Message> messages){
+    public String serialize(Messages messages){
         long start = System.nanoTime();
         Gson gson = new GsonBuilder().create();
         String json = gson.toJson(messages);
@@ -38,7 +37,7 @@ public class GsonDemo extends BaseSerialize<String> {
     public Object unserialize(String str){
         long start = System.nanoTime();
         Gson gson = new GsonBuilder().create();
-        List obj = gson.fromJson(str, List.class);
+        Messages obj = gson.fromJson(str, Messages.class);
         long duration = System.nanoTime() - start;
         System.out.print("unserialize: " + duration + "(" + TimeUnit.NANOSECONDS.toMillis(duration) + "ms)");
         return obj;

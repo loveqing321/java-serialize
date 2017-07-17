@@ -9,6 +9,10 @@ import com.meepai.serialize.json.fastjson.FastjsonDemo;
 import com.meepai.serialize.json.gson.GsonDemo;
 import com.meepai.serialize.json.jackson.JacksonDemo;
 import com.meepai.serialize.json.jsonlib.JsonLibDemo;
+import com.meepai.serialize.xml.beans.BeansDemo;
+import com.meepai.serialize.xml.jaxb.JaxbDemo;
+import com.meepai.serialize.xml.jibx.JibxDemo;
+import com.meepai.serialize.xml.xstream.XStreamDemo;
 
 /**
  * Created by meepai on 2017/7/17.
@@ -32,5 +36,10 @@ public class MainTest {
 
         System.out.println();
         System.out.println("****************** test xml serialize/unserialize ****************");
+        JibxDemo.main(args);
+//        XStreamDemo.main(args);
+//        BeansDemo.main(args);
+        JaxbDemo.main(args);
+
     }
 }

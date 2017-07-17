@@ -3,11 +3,11 @@ package com.meepai.serialize.bytes.msgpack;
 import com.meepai.serialize.BaseSerialize;
 import com.meepai.serialize.Message;
 import com.meepai.serialize.MessageCreator;
+import com.meepai.serialize.Messages;
 import org.msgpack.MessagePack;
 import org.msgpack.template.Templates;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,9 +20,10 @@ public class MessagePackDemo extends BaseSerialize<byte[]> {
     public MessagePackDemo(){
         // 注册javabean的类型
         msgpack.register(Message.class);
+        msgpack.register(Messages.class);
     }
 
-    public byte[] serialize(List<Message> messages){
+    public byte[] serialize(Messages messages){
         byte[] json = null;
         long start = System.nanoTime();
         try {
