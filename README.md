@@ -16,6 +16,7 @@ jdk，  jboss marshalling，  protobuf，  thrift
 ```
 
 **测试一个嵌套的Messages对象，其中包含10万个Message子对象，结果如下：**
+
 1. Jdk     serialize: 303545000(303ms)		unserialize: 252196000(252ms)		byteSize: 5578056
 2. MessagePack 	 serialize: 1129156000(1129ms)		unserialize: 171346000(171ms)		byteSize: 6446330
 3. Marshalling 	 serialize: 232842000(232ms)		unserialize: 141572000(141ms)		byteSize: 5578056
@@ -38,6 +39,15 @@ jackson，  json-lib，  gson，  fastjson
 
 ```
 
+**测试一个嵌套的Messages对象，其中包含10万个Message子对象，结果如下：**
+
+1. jackson 	 serialize: 206993000(206ms)		unserialize: 281085000(281ms)
+2. gson 	 serialize: 213390000(213ms)		unserialize: 169707000(169ms)
+3. fastjson 	 serialize: 196175000(196ms)		unserialize: 234944000(234ms)
+4. json-lib  序列化与反序列化都很慢
+
+**结论：这三种json序列化工具效果都差不多，可能gson在反序列化方面效果更明显些。**
+
 ### xml 序列化
 ```
 -----------------------------------------------
@@ -47,3 +57,12 @@ java beans encoder/decoder，  jaxb，  jibx，  xstream
 -----------------------------------------------
 
 ```
+
+**测试一个嵌套的Messages对象，其中包含10万个Message子对象，结果如下：**
+
+1. jibx 	 serialize: 261290000(261ms)		unserialize: 419034000(419ms)
+2. jaxb 	 serialize: 311686000(311ms)		unserialize: 728823000(728ms)
+3. java beans encoder/decoder 序列化后的xml格式不符合我们实际使用，这里不做对比
+4. xstream  序列化与反序列化都很慢
+
+**结论：jibx的序列化和反序列化效果是很不错的，但是jibx需要预先进行binding和compiler（修改原先的序列化对象类代码）。**
